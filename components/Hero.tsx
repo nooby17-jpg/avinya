@@ -1,34 +1,34 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function Hero() {
   return (
     <section className="min-h-[80vh] flex items-center px-6 bg-bg">
-      <div className="max-w-5xl mx-auto">
-        <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-semibold text-text">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="max-w-5xl mx-auto"
+      >
+        <h1 className="font-heading text-6xl font-semibold text-text">
           Solving the Future
         </h1>
 
-        <p className="mt-6 max-w-3xl font-body text-subtext text-lg">
-          Avinya delivers Web Solutions, IT Services, Cyber Security,
-          AI & ML, Analytics, and Design — built for scale, clarity, and trust.
+        <p className="mt-6 font-body text-lg text-subtext">
+          Avinya delivers Web, IT, Cyber Security, AI & Analytics solutions.
         </p>
 
-        <div className="mt-10 flex flex-col sm:flex-row gap-4">
+        <div className="mt-10 flex gap-4">
           <Link
             href="/contact"
-            className="font-heading px-6 py-3 bg-highlight text-white rounded-md hover:opacity-90 transition"
+            className="bg-highlight text-white px-6 py-3 rounded-md"
           >
-            Book Solution →
-          </Link>
-
-          <Link
-            href="/services"
-            className="font-heading px-6 py-3 border border-black/20 rounded-md hover:bg-black/5 transition"
-          >
-            View Services
+            Contact Us
           </Link>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
