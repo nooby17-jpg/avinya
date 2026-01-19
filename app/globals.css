@@ -9,3 +9,10 @@ button,
 a {
   transition: all 0.2s ease;
 }
+* {
+  cursor: default;
+}
+
+img {
+  user-select: none;
+}

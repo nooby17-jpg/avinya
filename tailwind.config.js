@@ -14,8 +14,7 @@ module.exports = {
         accent: "#001B50",
       },
       fontFamily: {
-        heading: ["var(--font-heading)"],
-        body: ["var(--font-body)"],
+        primary: ["var(--font-heading)"],
       },
     },
   },

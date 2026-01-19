@@ -1,25 +1,16 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Open_Sans, Lora } from "next/font/google";
-import { Metadata } from "next";
-import PageTransition from "@/components/PageTransition";
+import { Public_Sans, Lora } from "next/font/google";
 import { Toaster } from "sonner";
 
 <Toaster richColors />
-
-
-const openSans = Open_Sans({
+const publicSans = Public_Sans({
   subsets: ["latin"],
-  variable: "--font-heading",
-  display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-primary",
 });
 
-const lora = Lora({
-  subsets: ["latin"],
-  variable: "--font-body",
-  display: "swap",
-});
 export const metadata = {
   metadataBase: new URL("https://avinya.tech"),
   title: {
@@ -60,8 +51,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${openSans.variable} ${lora.variable}`}>
-      <body className="bg-bg text-text antialiased font-body">
+    <html lang="en" className={`${publicSans.variable}`}>
+      <body className="bg-bg text-text antialiased font-primary">
         <Toaster richColors />
         <Navbar />
         {children}

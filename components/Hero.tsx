@@ -1,33 +1,33 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
+import TechnologiesHover from "@/sections/TechnologiesHover";
+import { typography } from "@/design-system/typography";
 
 export default function Hero() {
   return (
-    <section className="min-h-[80vh] flex items-center px-6 bg-bg">
+    <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+      
+      {/* Hover tech layer */}
+      <TechnologiesHover  />
+
+      {/* Hero text */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="max-w-5xl mx-auto"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="relative -z-10 max-w-[1100px] text-center"
       >
-        <h1 className="font-heading text-6xl font-semibold text-text">
-          Solving the Future
+        <h1 className={"-inset-0 -z-10 text-[clamp(3rem,8vw,56.5rem)] leading-[0.95] font-extrabold"}>
+          THE ERA OF
+          <br />
+          TECHNOLOGY IN MOTION
+          <br />
+          HAS ARRIVED.
         </h1>
 
-        <p className="mt-6 font-body text-lg text-subtext">
-          Avinya delivers Web, IT, Cyber Security, AI & Analytics solutions.
+        <p className="mt-10 text-sm uppercase tracking-wide opacity-70">
+          Engineering digital systems for the future
         </p>
-
-        <div className="mt-10 flex gap-4">
-          <Link
-            href="/contact"
-            className="bg-highlight text-white px-6 py-3 rounded-md"
-          >
-            Contact Us
-          </Link>
-        </div>
       </motion.div>
     </section>
   );
