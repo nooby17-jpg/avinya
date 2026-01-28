@@ -1,11 +1,10 @@
 import Hero from "@/components/Hero";
-import ServicesHero from "@/sections/ServicesHero";
-
+import Services from "@/components/Services";
 export default function Home() {
   return (
-    <>
+    <div className="bg-bglight px-5 md:px-10 overflow-x-hidden">
       <Hero />
-      <ServicesHero/>
-    </>
+      <Services/>
+    </div>
   );
 }

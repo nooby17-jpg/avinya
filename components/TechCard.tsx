@@ -31,7 +31,7 @@ export default function TechCard({
         damping: 20,
       }}
     >
-      <div className="w-28 h-28 rounded-xl bg-[#F7F4EF] border border-black/10 flex items-center justify-center shadow-lg">
+      <div className="w-28 h-28 rounded-xl bg-bglight border border-text/790 flex items-center justify-center shadow-lg">
         <Image
           src={src}
           alt="Technology"

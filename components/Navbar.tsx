@@ -1,30 +1,86 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+
+  // Detect scroll
+  useEffect(() => {
+    let ticking = false;
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 40);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const isServices = pathname.startsWith("/services");
+
+  /**
+   * THEME LOGIC
+   * ──────────────────────────
+   * Top of page → transparent
+   * Scrolled → solid bg based on route
+   */
+  const bgClass = scrolled
+  ? isServices
+    ? "bg-accent/90 backdrop-blur-md"
+    : "bg-bglight/90 backdrop-blur-md"
+  : "bg-transparent";
+
+  const textClass = scrolled
+    ? isServices 
+      ? "text-white"
+      : "text-text" 
+    : isServices 
+      ? "text-white" 
+      : "text-text";
+
+  const borderClass = scrolled ? "border-b border-text/20" : "";
+
   return (
-    <header className="fixed top-0 z-50 w-full bg-[#FFF]">
-      <div className="max-w-[1400px] mx-auto flex items-center justify-between px-6 py-6">
-        {/* Logo */}
-        <Link href="/" className="font-extrabold  uppercase text-xl justify-center align-middle">
+    <header
+      className={`fixed top-0 z-50 w-full h-[60px] transition-colors duration-300 ease-out ${bgClass} ${textClass} ${borderClass}`}
+    >
+      <div className="max-w-[100%] mx-auto flex items-center justify-between px-4 md:px-10 py-4 md:py-2">
+
+        {/* LEFT */}
+        <nav className="flex text-sm md:text-md font-bold uppercase">
+          <Link
+            href="/about"
+            className="hover:opacity-70 md:px-3 py-2 transition"
+          >
+            About
+          </Link>
+        </nav>
+
+        {/* LOGO */}
+        <Link
+          href="/"
+          id="navbar-logo"
+          className="font-extrabold tracking-tight uppercase text-2xl md:text-4xl"
+        >
           avinya
         </Link>
 
-        {/* Center links */}
-        <nav className="hidden md:flex gap-10 text-sm font-medium">
-          <Link href="/services">Services</Link>
-          <Link href="/blogs">Blogs</Link>
-          <Link href="/about">About</Link>
-        </nav>
-
-        {/* CTA */}
+        {/* RIGHT */}
         <Link
           href="/contact"
-          className="rounded-full border border-black px-6 py-2 text-sm hover:bg-black hover:text-white transition"
+          className="font-bold px-0 md:px-3 py-2 text-xs md:text-md uppercase hover:opacity-70 transition"
         >
-          Contact Us
+          Contact
         </Link>
       </div>
     </header>

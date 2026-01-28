@@ -1,56 +1,48 @@
-export default function ServicesPage() {
-  return (
-    <main className="px-6 py-20">
-      <div className="max-w-6xl mx-auto">
-        
-        {/* Header */}
-        <div className="max-w-3xl mb-16">
-          <h1 className="text-4xl font-semibold tracking-tight">
-            Services
-          </h1>
-          <p className="mt-4 text-white/70">
-            Avinya delivers end-to-end digital solutions across technology,
-            security, intelligence, and design.
-          </p>
-        </div>
+"use client";
 
-        {/* Services */}
-        <div className="space-y-12">
-          <Service
-            title="Web Solutions"
-            desc="Frontend, backend, and full-stack web systems engineered for performance, scalability, and SEO."
-          />
-          <Service
-            title="IT Solutions"
-            desc="Infrastructure, monitoring, and system optimization designed for reliability and uptime."
-          />
-          <Service
-            title="Cyber Security"
-            desc="Secure architectures, vulnerability protection, and compliance-ready systems."
-          />
-          <Service
-            title="AI & Machine Learning"
-            desc="Custom AI models, automation, and intelligent workflows built with transparency and trust."
-          />
-          <Service
-            title="Analytics"
-            desc="Data pipelines, dashboards, and insights that enable faster, better decisions."
-          />
-          <Service
-            title="Design"
-            desc="Logos, branding, UI/UX, and social media creatives aligned with business identity."
-          />
-        </div>
+import { useRef } from "react";
+import { motion } from "framer-motion";
+import CursorBrandTrail from "@/components/CursorBrandTrail";
+import TechnologiesHover from "@/sections/TechnologiesHover";
+import Services from "@/components/Services";
+
+
+export default function ServicesPage() {
+  const serviceRef = useRef<HTMLElement>(null);
+  return (
+    <main className="px-6 py-0 bg-accent">
+      <section
+        ref={serviceRef}
+        className="relative min-h-screen flex items-start md:items-center justify-center px-0 mt-28 md:mt-0 overflow-hidden"
+      >
+        {/* Cursor trail ONLY inside hero */}
+        <CursorBrandTrail containerRef={serviceRef} />
+
+        {/* Existing hover layer */}
+        <TechnologiesHover />
+
+        {/* Hero text */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="relative z-0 max-w-[100vw] text-center "
+        >
+          <h1 className="text-[clamp(3.5rem,8vw,56.5rem)] leading-[1.05] font-black px-2 uppercase text-white">
+            Avinya delivers
+            <br />
+            end-to-end  digital solutions
+            <br />
+            across technology
+          </h1>
+
+          <p className="mt-10 text-sm md:text-xl font-bold uppercase tracking-wide opacity-70 text-white/70">
+            Engineering digital systems for the future
+          </p>
+        </motion.div>
+      </section>
+      <div className="max-w-6xl mx-auto">
+        <Services/>  
       </div>
     </main>
-  );
-}
-
-function Service({ title, desc }: { title: string; desc: string }) {
-  return (
-    <div className="border-b border-white/10 pb-8">
-      <h2 className="text-2xl font-medium mb-2">{title}</h2>
-      <p className="text-white/70 max-w-3xl">{desc}</p>
-    </div>
   );
 }

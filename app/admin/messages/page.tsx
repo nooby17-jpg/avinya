@@ -6,7 +6,7 @@ export default async function AdminMessages() {
   });
 
   return (
-    <section className="py-24 px-6">
+    <section className="py-24 px-6 bg-bglight">
       <div className="max-w-5xl mx-auto">
         <h1 className="text-3xl font-heading font-semibold">
           Contact Messages

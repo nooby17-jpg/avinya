@@ -44,7 +44,7 @@ export default function TechnologiesHover() {
             x={pos.x + i * 25 - 60}
             y={pos.y + i * 25 - 60}
             rotate={i * 0}
-            scale={i * 0.2}
+            scale={i * 0.35}
           />
         ))}
     </div>

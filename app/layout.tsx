@@ -1,8 +1,11 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Public_Sans, Lora } from "next/font/google";
+import { Public_Sans } from "next/font/google";
 import { Toaster } from "sonner";
+import RouteLoader from "@/components/RouteLoader";
+import FloatingCTA from "@/components/FloatingCTA";
+import PageTransition from "@/components/PageTransition";
 
 <Toaster richColors />
 const publicSans = Public_Sans({
@@ -52,10 +55,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${publicSans.variable}`}>
-      <body className="bg-bg text-text antialiased font-primary">
+      <body className="bg-bg text-text antialiased font-primary  overflow-x-hidden">
+        <RouteLoader />
         <Toaster richColors />
         <Navbar />
-        {children}
+        <FloatingCTA />
+        <PageTransition>
+          {children}
+        </PageTransition>
         <Footer />
       </body>
     </html>
