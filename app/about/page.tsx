@@ -171,7 +171,7 @@ export default function AboutPage() {
       </section>
 
       {/* ───────────────── FOUNDERS ───────────────── */}
-      <section className="px-0 py-24 border-t border-text/20">
+      <section className="px-6 md:px-0 py-24 border-t border-text/20">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
           <div>
             <h3 className="text-2xl font-extrabold uppercase mb-4">
@@ -185,7 +185,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="flex flex-col text-right items-end justify-end">
+          <div className="flex flex-col text-left items-start justify-start md:text-right md:items-end md:justify-end">
             <h3 className="text-2xl font-extrabold uppercase mb-4">
               Sanidhya Shekhar
             </h3>

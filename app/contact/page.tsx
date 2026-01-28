@@ -69,7 +69,7 @@ export default function ContactPage() {
                   <h2 className=" text-subtext/70 text-lg md:text-xl  font-bold">
                     Social Media
                   </h2>
-                  <div className="flex text-text font-black text-lg gap-6 tracking-wider">
+                  <div className="flex flex-col md:flex-row text-text font-black text-lg gap-1 md:gap-6 tracking-wider">
                     <Link href={"/x.com"} target="_blank">Twitter</Link>
                     <Link href={"/linkedin.com"} target="_blank">LinkedIn</Link>
                     <Link href={"/facebook.com"} target="_blank">Facebook</Link>
@@ -80,7 +80,7 @@ export default function ContactPage() {
                   <h2 className=" text-subtext/70 text-lg md:text-xl  font-bold">
                     GET IN TOUCH
                   </h2>
-                  <Link href={"/mailto:nikhil7679@gmail.com"} className="text-text font-black text-lg gap-6 tracking-wider">nikhil7679@gmail.com</Link>
+                  <Link href="mailto:nikhil7679@gmail.com" className="text-text font-black text-lg gap-6 tracking-wider">nikhil7679@gmail.com</Link>
                 </div>
                 <div className="flex flex-col mt-10">
                   <h2 className=" text-subtext/70 text-lg md:text-xl  font-bold">
